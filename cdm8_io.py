@@ -26,9 +26,25 @@ except:
     import tkMessageBox as messagebox
     import tkFont as font
 
+import pyclbr
+
 # Global vars
 interruptVector = 0
 interrupt = None
+
+
+def __get_all_subclasses(cls):
+    all_subclasses = []
+
+    for subclass in cls.__subclasses__():
+        all_subclasses.append(subclass)
+        all_subclasses.extend(__get_all_subclasses(subclass))
+
+    return all_subclasses
+
+def get_io_ports():
+    subclasses = __get_all_subclasses(IOport)
+    return {cls.__name__: pyclbr.Class(__name__, cls.__name__, None, '', 0) for cls in subclasses}
 
 class IOport():
     """

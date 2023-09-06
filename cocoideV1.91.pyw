@@ -90,20 +90,12 @@ from __future__ import absolute_import, division, print_function
 
 title = 'CocoIDE V1.91'  # Should be updated to reflect version
 
-try:
-    # Python 3 tk
-    import tkinter as tk
-    from tkinter import ttk
-    from tkinter import filedialog
-    from tkinter import messagebox
-    import tkinter.font as font
-except:
-    # Python 2 tk (runs but not exhaustively tested!)
-    import Tkinter as tk
-    import ttk
-    import tkFileDialog as filedialog
-    import tkMessageBox as messagebox
-    import tkFont as font
+import tkinter as tk
+from tkinter import ttk
+from tkinter import filedialog
+from tkinter import messagebox
+import tkinter.font as font
+
 
 import argparse
 import random
@@ -328,8 +320,9 @@ class CocoIDE(tk.Frame):
         
         ## IO Ports 
         # Get list of Port names from cdm8_io module
-        self.ioPorts = pyclbr.readmodule('cdm8_io')
-        del self.ioPorts["IOport"] # Do not need Super class name
+        # self.ioPorts = pyclbr.readmodule('cdm8_io')
+        self.ioPorts = cdm8_io.get_io_ports()
+        # del self.ioPorts["IOport"] # Do not need Super class name
         #print(self.ioPorts)#debug
         self.ioPortnames = [ x.name for x in self.ioPorts.values()]
         self.ioPortnames.sort()
