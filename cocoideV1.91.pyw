@@ -510,12 +510,12 @@ class CocoIDE(tk.Frame):
         self.runEPSelect.current(0)
         self.runEPSelect.pack(side=tk.TOP)
         
-        # Cludge for Mac/OSX
-        if platform == "darwin":
-            compileButton = tk.Button(buttonBar, text="Compile/Reset", command=self.compileText, height=3, ipadx=6)
-        else:
-            compileButton = tk.Button(buttonBar, text="Compile\nReset", command=self.compileText, height=3, padx=6)
-        compileButton.pack(side=tk.RIGHT)
+        # # Cludge for Mac/OSX
+        # if platform == "darwin":
+        #     compileButton = tk.Button(buttonBar, text="Compile/Reset", command=self.compileText, height=3, ipadx=6)
+        # else:
+        compileButton = tk.Button(buttonBar, text="Compile\nReset", command=self.compileText, height=3, padx=6)
+        # compileButton.pack(side=tk.RIGHT)
         
         # Staus/Run time warning/Error pane
         self.statusMsg=tk.Label(buttonBar, text="", width=20, fg="red", bg="white", 
