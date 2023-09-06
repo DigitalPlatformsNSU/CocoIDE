@@ -1,6 +1,5 @@
 .venv
 build/
 dist/
-cocoideV1.91.spec
 .idea
 __pycache__
