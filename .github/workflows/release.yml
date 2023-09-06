@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.10' 
       - run: pip install pyinstaller
-      - run: pyinstaller -F -n "cocoide-${{ matrix.os }}" cocoideV1.91.pyw
+      - run: pyinstaller -F -n "cocoide-${{ matrix.os }}" --add-data 'standard.mlb:.' --add-data 'CocoIDE-SoftwareManual.pdf:.' cocoideV1.91.pyw
       - name: Upload artifacts 
         uses: actions/upload-artifact@v3
         with:

@@ -122,6 +122,11 @@ import cocas
 import cdm8_emu
 import cdm8_io
 
+
+try:
+    os.chdir(sys._MEIPASS)
+except Exception:
+    pass
 # Get list of IOport classes
 
 #ioPorts = pyclbr.readmodule('cdm8_io')
