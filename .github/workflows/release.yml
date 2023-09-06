@@ -38,4 +38,7 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: true
           title: "Latest Build"
-          files: bins/cocoide*
+          files: |
+            bins/cocoide-macos-latest
+            bins/cocoide-ubuntu-latest
+            bins/cocoide-windows-latest
