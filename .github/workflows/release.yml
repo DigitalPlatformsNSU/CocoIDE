@@ -25,3 +25,17 @@ jobs:
           name: cocoide-${{ matrix.os }}
           path: dist/
           retention-days: 1
+  upload_shit:
+    runs-on: ubuntu-latest
+    needs: build_shit
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: bins
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Latest Build"
+          files: bins/*
